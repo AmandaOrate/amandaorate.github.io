@@ -30,55 +30,12 @@ a {
 .logo .subtext {
   font-size: 12px;
 }
-
-nav {
+.navigation {
   display: flex;
   justify-content: space-between;
-  padding: 10px 50px;
-  font-family: 'Agrandir';
+  padding-top: 10px;
+  flex-wrap: wrap;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #6345e5;
-}
-
-nav a.active {
-  border-bottom: 2px solid #6345e5;
-  padding-bottom: 10px;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background: #111;
-  margin-top: 35px;
-  padding: 10px 0;
-}
-
-.dropdown-menu li {
-  padding: 10px 30px;
-}
-
-.dropdown-menu li:hover {
-  background-color: #222;
-}
-
 .nav-left, .nav-right {
   display: flex;
   gap: 20px;
@@ -203,44 +160,4 @@ nav a.active {
   }
   .arc-word { font-size: 36px; }
   .focus-word { font-size: 48px; }
-}
-
-.basic-composition {
-  text-align: center;
-  padding: 40px 20px;
-  font-family: 'DreamAvenue';
-}
-
-.description-underlabel {
-  text-align: center;
-  font-size: 0.9rem;
-  font-family: 'Montserrat';
-}
-
-.composition-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-  padding: 0 100px;
-}
-
-.gallery-image {
-  background-color: #222;
-  aspect-ratio: 1/1;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.gallery-image input[type="file"] {
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.gallery-image:hover {
-  box-shadow: 0 0 10px white;
-  filter: brightness(0.5);
 }
