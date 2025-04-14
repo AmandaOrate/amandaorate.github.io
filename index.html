@@ -13,19 +13,24 @@
       <div class="brand">Arcorate</div>
       <div class="subtext">Photography</div>
     </div>
-    <div class="navigation">
-      <div class="nav-left">
-        <a href="#">HOME</a>
-        <a href="#">ARTS</a>
-        <div class="dropdown">
+     <nav>
+      <ul class="nav-left">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ARTS</a></li>
+        <li class="dropdown">
           <a href="#" class="active">PHOTOGRAPHY</a>
-          <div class="dropdown-content">
-            <a href="#">PHOTOGRAPHY 1</a>
-            <a href="#">PHOTOGRAPHY 2</a>
-            <a href="#">GALLERY</a>
-          </div>
-        </div>
-      </div>
+          <ul class="dropdown-menu">
+            <li><a href="#">PHOTOGRAPHY 1</a></li>
+            <li><a href="#">PHOTOGRAPHY 2</a></li>
+            <li><a href="#">GALLERY</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="#">ARTIST</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
       <div class="nav-right">
         <a href="#">ARTIST</a>
         <a href="#">CONTACT</a>
@@ -85,6 +90,25 @@
       </div>
     </div>
   </div>
+
+<!-- Template for Basic Composition page -->
+  <section class="basic-composition">
+    <h2>BASIC COMPOSITION</h2>
+    <p class="description-underlabel">The way the various elements in a scene are arranged within the frame. As I've already mentioned, these are not hard and fast rules but guidelines.</p>
+    </p>
+    <div class="composition-gallery">
+      <!-- 9 image placeholders -->
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+    </div>
+  </section>
 
   <script>
     document.querySelectorAll('.image-input').forEach(input => {
