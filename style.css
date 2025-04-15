@@ -1,41 +1,78 @@
 @font-face {
   font-family: 'Dream Avenue';
-  src: url('fonts/DreamAvenue.woff2') format('woff2');
+  src: url('DreamAvenue.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Agrandir';
-  src: url('fonts/Agrandir.woff2') format('woff2');
+  src: url('Agrandir.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Balgin';
+  src: url('Balgin.otf') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat.ttf') format('woff2');
+}
+
 body {
   margin: 0;
   background: black;
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 .top-bar {
   text-align: center;
   padding: 20px 40px;
 }
+
 .logo {
-  margin-bottom: 10px;
+  margin-top: 7px;
 }
+
+.logo .logo-image {
+  background-color: #222;
+  aspect-ratio: 1/1;
+  position: static;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  width: 3rem; 
+}
+
+.logo .logo-image input[type="file"] {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 3rem;
+}
+
 .logo .brand {
   font-family: 'Balgin', sans-serif;
   font-size: 20px;
 }
+
 .logo .subtext {
-  font-size: 12px;
+  padding-top: 0.25rem;
+  font-size: 0.65rem;
+  color: #b0b0b0
 }
 
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 10px 50px;
-  font-family: 'Agrandir';
+  font-family: 'Agrandir', sans-serif;
 }
 
 nav ul {
@@ -85,17 +122,21 @@ nav a.active {
   font-family: 'Agrandir', sans-serif;
   font-size: 14px;
 }
+
 .nav-left a:hover,
 .nav-right a:hover {
   color: #6345e5;
 }
+
 .nav-left .active {
   border-bottom: 3px solid #6345e5;
   padding-bottom: 5px;
 }
+
 .dropdown {
   position: relative;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -105,50 +146,79 @@ nav a.active {
   border: 1px solid #6345e5;
   z-index: 5;
 }
+
 .dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
 }
+
 .dropdown-content a {
   padding: 6px 16px;
   font-size: 13px;
   white-space: nowrap;
 }
+
 .content {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  height: 90vh; 
 }
+
 .left-panel {
   flex: 1;
   padding: 30px 40px;
+  margin-left: 20px;
+  
 }
-.arc-word {
-  font-family: 'Balgin', sans-serif;
-  font-size: 60px;
-  line-height: 1.2;
-  color: #6345e5;
+
+.intro .the {
+  font-size: 1rem;
+  margin-top: 18px;
+  margin-bottom: 7px;
 }
+
+.intro .of {
+  font-size: 1rem;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.arc {
+  font-size: 4rem;
+  color: #7A5FFF; /* Purple */
+  font-family: 'Balgin', sans-serif; /* Use @font-face for custom */
+  margin: 0;
+}
+
+.focus {
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  font-family: 'Dream Avenue', serif; /* Use @font-face for custom */
+  margin: 0.2em 0;
+}
+
+.description {
+  font-size: 0.85rem;
+  margin: 1rem 0 2rem;
+  line-height: 1.4;
+}
+
 .focus-word {
-  font-family: 'Dream Avenue', serif;
+  font-family: 'Dream Avenue', cursive;
   font-size: 72px;
   letter-spacing: 6px;
 }
-.description {
+
+.descriptionarc {
   font-size: 14px;
   margin-top: 15px;
   max-width: 280px;
 }
-.photography-links {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-family: 'Agrandir', sans-serif;
-  font-size: 14px;
-}
+
 .right-panel {
   flex: 2;
 }
+
 .label-item {
   position: relative;
   height: 110px;
@@ -159,33 +229,41 @@ nav a.active {
   border-radius: 100px 0 0 100px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
+  padding-left: 60px;
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.4s, box-shadow 0.4s;
-  margin-bottom: 0;
+  margin-left: 50px;
 }
+
 .label-item:hover {
   transform: translateX(-10px);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  z-index: 10;
+  transform: scale(1.05); 
 }
+
 .label-text {
+  font-family: 'Montserrat';
   font-size: 16px;
-  font-weight: bold;
+  font-weight: regular;
   z-index: 2;
 }
+
 .hover-arrow {
   position: absolute;
-  left: 10px;
   opacity: 0;
-  transition: 0.3s ease;
-  font-size: 20px;
-  z-index: 2;
+
 }
+
 .label-item:hover .hover-arrow {
+  font-size: 36px;
   opacity: 1;
-  left: 20px;
+  transition: 0.2s ease;
+  left: 33px;
+  margin-bottom: 7px;
 }
+
 .image-input {
   position: absolute;
   opacity: 0;
@@ -193,6 +271,7 @@ nav a.active {
   height: 100%;
   z-index: 1;
 }
+
 @media (max-width: 900px) {
   .navigation {
     flex-direction: column;
@@ -208,21 +287,21 @@ nav a.active {
 .basic-composition {
   text-align: center;
   padding: 40px 20px;
-  font-family: 'DreamAvenue';
+  font-family: 'Dream Avenue', cursive;
 }
 
 .description-underlabel {
   text-align: center;
   font-size: 0.9rem;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 }
 
 .composition-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 4rem;
   margin-top: 30px;
-  padding: 0 100px;
+  padding: 0 4rem;
 }
 
 .gallery-image {
@@ -236,7 +315,7 @@ nav a.active {
 .gallery-image input[type="file"] {
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0;
   cursor: pointer;
 }
 

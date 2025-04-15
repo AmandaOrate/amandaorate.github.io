@@ -1,0 +1,52 @@
+<!-- Template for Basic Composition page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcorate | Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+    // Optional: Load header from another file
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+
+  <section class="basic-composition">
+    <h2>TENSILE</h2>
+    <p class="description-underlabel">The way the various elements in a scene are arranged within the frame. As I've already mentioned, these are not hard and fast rules but guidelines.</p>
+    <div class="composition-gallery">
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <div class="gallery-image"><input type="file" accept="image/*"></div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.image-input').forEach(input => {
+      input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          input.parentElement.style.backgroundImage = `url('${event.target.result}')`;
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+
+</body>
+</html>
