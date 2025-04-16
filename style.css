@@ -19,6 +19,7 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   background: black;
   color: white;
@@ -182,59 +183,67 @@ nav a.active {
 }
 
 
-/* FOCUS gallery title */
-/* Outer container: centers entire layout vertically and horizontally */
-.focusgalleryintro-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+
+
+/* Positions the entire heading block near the top, centered horizontally */
+.focusgallery-header {
+  position: absolute;
+  top: 2rem;          /* distance from top (adjust to taste) */
+  width: 100%;
+  text-align: center; /* center horizontally */
 }
 
-/* Main intro layout (ARC + FOCUS group) */
-.focusgalleryintro {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+/* Keeps "The ARC of FOCUS" on one line, 
+   and aligns bounding-box centers for each piece of text */
+.focusgallery-line {
+  display: inline-flex; 
+  align-items: center; /* bounding boxes center-aligned */
+  gap: 0.5rem;         /* spacing between words */
 }
 
-/* Group each word pair (e.g., The + ARC) */
-.focusgallerygroup {
-  display: flex;
-  align-items: center;         /* vertically align words */
-  justify-content: center;     /* horizontally center group */
+/* Smaller words: "The" and "of". 
+   We nudge them down so their center lines up with the bigger text. 
+   Adjust 'top' until visually perfect. */
+.side-text {
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  position: relative;
+  top: 0.7rem; /* tweak this value if needed */
 }
 
-/* Smaller words like "The" and "of" */
-.focusgalleryside {
-  font-size: 1rem;
-  margin-right: 10px;
-}
-
-/* ARC styling */
-.focusgalleryarc {
+/* Large "ARC" */
+.arc-text {
   font-size: 4rem;
-  color: #7A5FFF;
+  line-height: 1;
   font-family: 'Balgin', sans-serif;
+  color: #7A5FFF;
   margin: 0;
 }
 
-/* FOCUS styling */
-.focusgalleryfocus {
+/* Large "FOCUS" */
+.focus-text {
   font-size: 3.5rem;
+  line-height: 1;
   font-family: 'Dream Avenue', cursive;
+  color: #ffffff;
   margin: 0;
 }
 
-/* Description text below title */
-.focusgallery {
-  margin-top: 1.5rem;
+/* Second line: "Gallery", centered below */
+.gallery-subtext {
+  margin-top: 0.3rem; /* slight gap below the main title */
   font-size: 1rem;
-  max-width: 600px;
-  opacity: 0.8;
+  font-family: 'Montserrat', sans-serif;
+  color: #ccc;
 }
+
+
+
+
+
+
+
 
 
 .focus {
@@ -389,6 +398,20 @@ nav a.active {
   cursor: pointer;
   font-weight: regular;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 900px) {
