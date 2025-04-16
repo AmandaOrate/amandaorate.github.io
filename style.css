@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Dream Avenue';
-  src: url('DreamAvenue.woff2') format('woff2');
+  src: url('fonts/DreamAvenue.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Agrandir';
-  src: url('Agrandir.woff2') format('woff2');
+  src: url('fonts/Agrandir.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Balgin';
-  src: url('Balgin.otf') format('woff2');
+  src: url('fonts/Balgin.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('Montserrat.ttf') format('woff2');
+  src: url('fonts/Montserrat.woff2') format('woff2');
 }
 
 body {
@@ -101,19 +101,24 @@ nav a.active {
 }
 
 .dropdown-menu {
-  display: none;
   position: absolute;
+  top: 100%;               /* place directly below the parent */
+  left: 50%;               /* center horizontally */
+  transform: translateX(-50%);
   background: #111;
-  margin-top: 35px;
-  padding: 10px 0;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+  display: none;           /* initially hidden */
+  text-align: center;
+  z-index: 10;
 }
 
 .dropdown-menu li {
-  padding: 10px 30px;
+  padding: 0.75rem 0.75rem;
 }
 
 .dropdown-menu li:hover {
-  background-color: #222;
+  background-color: #2555;
 }
 
 .nav-left, .nav-right {
@@ -121,6 +126,7 @@ nav a.active {
   gap: 20px;
   font-family: 'Agrandir', sans-serif;
   font-size: 14px;
+  padding: 0 4rem;
 }
 
 .nav-left a:hover,
@@ -137,31 +143,16 @@ nav a.active {
   position: relative;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 25px;
-  background-color: #222;
-  padding: 10px 0;
-  border: 1px solid #6345e5;
-  z-index: 5;
+/* Show it on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
-.dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.dropdown-content a {
-  padding: 6px 16px;
-  font-size: 13px;
-  white-space: nowrap;
-}
 
 .content {
   display: flex;
   align-items: center;
-  height: 90vh; 
+  height: 85vh; 
 }
 
 .left-panel {
@@ -189,6 +180,62 @@ nav a.active {
   font-family: 'Balgin', sans-serif; /* Use @font-face for custom */
   margin: 0;
 }
+
+
+/* FOCUS gallery title */
+/* Outer container: centers entire layout vertically and horizontally */
+.focusgalleryintro-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Main intro layout (ARC + FOCUS group) */
+.focusgalleryintro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Group each word pair (e.g., The + ARC) */
+.focusgallerygroup {
+  display: flex;
+  align-items: center;         /* vertically align words */
+  justify-content: center;     /* horizontally center group */
+}
+
+/* Smaller words like "The" and "of" */
+.focusgalleryside {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+/* ARC styling */
+.focusgalleryarc {
+  font-size: 4rem;
+  color: #7A5FFF;
+  font-family: 'Balgin', sans-serif;
+  margin: 0;
+}
+
+/* FOCUS styling */
+.focusgalleryfocus {
+  font-size: 3.5rem;
+  font-family: 'Dream Avenue', cursive;
+  margin: 0;
+}
+
+/* Description text below title */
+.focusgallery {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
 
 .focus {
   font-size: 3rem;
@@ -272,6 +319,78 @@ nav a.active {
   z-index: 1;
 }
 
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  background-color: #111;
+  border-radius: 10px;
+  max-width: 960px;
+  width: 90%;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.modal-info {
+  color: white;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-meta {
+  font-family: 'Agrandir', sans-serif;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-bottom: 0.3rem;
+}
+
+.modal-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: regular;
+}
+
+
 @media (max-width: 900px) {
   .navigation {
     flex-direction: column;
@@ -286,22 +405,31 @@ nav a.active {
 
 .basic-composition {
   text-align: center;
-  padding: 40px 20px;
+  padding: 0 20px;
   font-family: 'Dream Avenue', cursive;
+}
+
+
+.description-label {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .description-underlabel {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-family: 'Montserrat', sans-serif;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .composition-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  margin-top: 30px;
-  padding: 0 4rem;
+  gap: 3rem;
+  margin: 2rem;
+  padding: 0 8rem;
 }
 
 .gallery-image {
@@ -321,5 +449,162 @@ nav a.active {
 
 .gallery-image:hover {
   box-shadow: 0 0 10px white;
-  filter: brightness(0.5);
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 50% dark */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.hover-text-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  z-index: 3;
+  color: white;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-text-group:hover {
+  transform: translate(-50%, -50%) scale(1.08); /* slight zoom on hover */
+}
+
+.hover-photogtitle {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hover-photogsub {
+  font-family: 'Agrandir', sans-serif;
+  font-size: 0.75rem;
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
+.gallery-image:hover .hover-text-group {
+  opacity: 1;
+}
+
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .composition-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .composition-gallery > .gallery-image:nth-last-child(1):nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+  .composition-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center; /* center all grid items */
+  }
+
+  /* Center last item if it's alone in last row and at odd position */
+  .composition-gallery > .gallery-image:nth-last-child(1):nth-child(odd) {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .composition-gallery {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .composition-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .hover-photogtitle {
+    font-size: 0.95rem;
+  }
+
+  .hover-photogsub {
+    font-size: 0.7rem;
+  }
+
+  .hover-text-group {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .hover-text-group:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  .top-bar {
+    padding: 15px;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Footer */
+.site-footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 15px 20px 30px 20px;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  max-width: 9600px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #6345e5;
 }

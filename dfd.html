@@ -1,0 +1,200 @@
+<!-- Template for Basic Composition page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcorate | Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Just paste your header directly here -->
+  <div class="top-bar">
+    <div class="logo">
+      <div class="logo-image">
+        <input type="file" accept="image/*">
+      </div>
+      <div class="brand">Arcorate</div>
+      <div class="subtext">Photography</div>
+    </div>
+    <nav>
+      <ul class="nav-left">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="arts.html">ARTS</a></li>
+        <li class="dropdown">
+          <a href="#">PHOTOGRAPHY</a>
+          <ul class="dropdown-menu">
+            <li><a href="photo1.html">PHOTOGRAPHY 1</a></li>
+            <li><a href="photo2.html">PHOTOGRAPHY 2</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="artist.html">ARTIST</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Then continue with the rest of your content -->
+    <!-- Your page content here -->
+
+  <section class="basic-composition">
+    <p class="description-label">BASIC COMPOSITION</p>
+    <p class="description-underlabel">The way the various elements in a scene are arranged within the frame. As I've already mentioned, these are not hard and fast rules but guidelines.</p>
+    <div class="composition-gallery">
+      <div class="gallery-image">
+        <input type="file" accept="image/*" class="image-input">
+        <div class="hover-overlay"></div>
+        <div class="hover-text-group">
+          <div class="hover-photogtitle">TITLE</div>
+          <div class="hover-photogsub">f/5.6 | 1/250s | ISO-200</div>
+        </div>
+      </div>
+      <div class="gallery-image">
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+      <div class="gallery-image">         
+         <input type="file" accept="image/*" class="image-input">
+         <div class="hover-overlay"></div>
+         <div class="hover-text-group">
+           <div class="hover-photogtitle">TITLE</div>
+           <div class="hover-photogsub">f/0.0 | 1/000s | ISO 0000</div> 
+         </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ✅ Popup Modal — placed OUTSIDE of .composition-gallery -->
+<div id="imagePopup" class="modal">
+  <div class="modal-content">
+    <img id="popupImage" src="" alt="Popup" />
+    <div class="modal-info">
+      <div class="modal-title">TITLE</div>
+      <div class="modal-meta">Canon 700D</div>
+      <div class="modal-meta">f/5.6 | 1/250s | ISO-200</div>
+      <div class="modal-desc">
+        Placing it off-center using the rule of thirds will more often than not lead to a more attractive composition.
+      </div>
+    </div>
+    <span class="close-button">&times;</span>
+  </div>
+</div>
+
+  <script>
+    document.querySelectorAll('.image-input').forEach(input => {
+      input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          input.parentElement.style.backgroundImage = `url('${event.target.result}')`;
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+
+<script>
+  const modal = document.getElementById('imagePopup');
+  const popupImage = document.getElementById('popupImage');
+  const closeBtn = document.querySelector('.close-button');
+
+  // Loop through every gallery item
+  document.querySelectorAll('.gallery-image').forEach(gallery => {
+    const fileInput = gallery.querySelector('.image-input');
+    const hoverTitle = gallery.querySelector('.hover-photogtitle');
+    let imageUrl = 'placeholder.jpg'; // Default fallback image
+
+    // If user uploads an image, update the preview
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        imageUrl = event.target.result;
+        gallery.style.backgroundImage = `url('${imageUrl}')`;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Show popup always, with uploaded image or default
+    hoverTitle.addEventListener('click', () => {
+      popupImage.src = imageUrl;
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Close popup
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    popupImage.src = '';
+  });
+
+  // Close when clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      popupImage.src = '';
+    }
+  });
+</script>
+
+
+</body>
+</html>
