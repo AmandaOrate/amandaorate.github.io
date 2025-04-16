@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcorate | Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Just paste your header directly here -->
+
+<div id="header-placeholder"></div>
+
+  <!-- Then continue with the rest of your content -->
+  <div class="content">
+    <div class="left-panel">
+      <div class="intro">
+        <p class="the">The</p>
+        <h1 class="arc">ARC</h1>
+        <p class="of">of</p>
+        <h1 class="focus">FOCUS</h1>
+        <p class="descriptionarc">
+          The way the various elements in a scene are arranged within the frame. As I’ve already mentioned, these are not hard and fast rules but guidelines.
+        </p>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text"><a href="basiccomposition.html">BASIC COMPOSITION</a></span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text"><a href="tensile.html">TENSILE</a></span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text">LIGHT DRAWING</span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text">MULTIPLE EXPOSURE</span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text">NIGHT</span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text">STUDY OF SMILE</span>
+      </div>
+      <div class="label-item dropzone">
+        <input type="file" accept="image/*" class="image-input" />
+        <span class="hover-arrow">»</span>
+        <span class="label-text">PHOTO DOCUMENTARY</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+<script>
+  fetch('header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Error loading header:', err));
+</script>
+
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Error loading footer:', err));
+</script>
+
+  <!-- Active tab -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+      const navLinks = document.querySelectorAll("nav a"); // Select all navigation links
+  
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active"); // Add 'active' class to the current page link
+        } else {
+          link.classList.remove("active"); // Remove 'active' class from other links
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
