@@ -1,3 +1,4 @@
+// Load header and footer
 fetch('header.html')
   .then(res => res.text())
   .then(data => {
@@ -12,115 +13,87 @@ fetch('footer.html')
   })
   .catch(err => console.error('Error loading footer:', err));
 
-// Active tab
+// Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('imagePopup');
+  const popupImage = document.getElementById('popupImage');
+  const closeBtn = document.querySelector('.close-button');
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item')); // Collect all gallery items
 
+  // Debugging: Log the selected elements
+  console.log('Modal:', modal); // Should log the modal element
+  console.log('Popup Image:', popupImage); // Should log the popup image element
+  console.log('Gallery Items:', galleryItems); // Should log an array of all gallery items
 
-// React.Fragment tags removed
-document.querySelectorAll('.image-input').forEach(input => {
-    input.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function (event) {
-         input.parentElement.style.backgroundImage = `url('${event.target.result}')`;
-      };
-      reader.readAsDataURL(file);
-    });
- });
+  // Function to show the modal with the clicked image
+  function showModal(imageSrc) {
+    console.log('showModal called with:', imageSrc); // Debugging
+    if (modal && popupImage) {
+      popupImage.src = imageSrc; // Set the image in the modal
+      modal.style.display = 'flex'; // Show the modal
+    } else {
+      console.error('Modal or popupImage element is missing.');
+    }
+  }
 
-const modal = document.getElementById('imagePopup');
-const popupImage = document.getElementById('popupImage');
-const closeBtn = document.querySelector('.close-button');
+  // Function to close the modal
+  function closeModal() {
+    console.log('closeModal called'); // Debugging
+    if (modal && popupImage) {
+      modal.style.display = 'none'; // Hide the modal
+      popupImage.src = ''; // Clear the image
+    } else {
+      console.error('Modal or popupImage element is missing.');
+    }
+  }
 
-// Loop through every gallery item
-document.querySelectorAll('.gallery-image').forEach(gallery => {
- const fileInput = gallery.querySelector('.image-input');
- const hoverTitle = gallery.querySelector('.hover-photogtitle');
- let imageUrl = 'placeholder.jpg'; // Default fallback image
+  // Add event listeners for .hover-photogtitle and .hover-photogsub
+  galleryItems.forEach(item => {
+    const hoverTitle = item.querySelector('.hover-photogtitle');
+    const hoverSub = item.querySelector('.hover-photogsub');
+    const originalImage = item.querySelector('img:not(.hover-image)'); // Select the original image
 
- // If user uploads an image, update the preview
- fileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      imageUrl = event.target.result;
-      gallery.style.backgroundImage = `url('${imageUrl}')`;
-    };
-    reader.readAsDataURL(file);
- });
+    if (hoverTitle) {
+      hoverTitle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent the event from bubbling to the parent
+        console.log('Title clicked:', hoverTitle.textContent); // Debugging
+        showModal(originalImage.src); // Show the modal with the original image
+      });
+    }
 
- // Show popup always, with uploaded image or default
- hoverTitle.addEventListener('click', () => {
-    popupImage.src = imageUrl;
-    modal.style.display = 'flex';
- });
-});
+    if (hoverSub) {
+      hoverSub.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent the event from bubbling to the parent
+        console.log('Subtitle clicked:', hoverSub.textContent); // Debugging
+        showModal(originalImage.src); // Show the modal with the original image
+      });
+    }
+  });
 
-// Close popup
-closeBtn.addEventListener('click', () => {
- modal.style.display = 'none';
- popupImage.src = '';
-});
-
-// Close when clicking outside
-window.addEventListener('click', (e) => {
- if (e.target === modal) {
-    modal.style.display = 'none';
-    popupImage.src = '';
- }
-});
-let activeGallery = null; // Track last clicked gallery block
-const popupUpload = document.getElementById('popupUpload');
-
-document.querySelectorAll('.gallery-image').forEach(gallery => {
-const fileInput = gallery.querySelector('.image-input');
-const hoverTitle = gallery.querySelector('.hover-photogtitle');
-let imageUrl = 'placeholder.jpg';
-
-fileInput.addEventListener('change', (e) => {
- const file = e.target.files[0];
- if (!file) return;
- const reader = new FileReader();
- reader.onload = function (event) {
-    imageUrl = event.target.result;
-    gallery.style.backgroundImage = `url('${imageUrl}')`;
-    gallery.dataset.imageUrl = imageUrl;
- };
- reader.readAsDataURL(file);
-});
-
-hoverTitle.addEventListener('click', () => {
- activeGallery = gallery;
- const storedImage = gallery.dataset.imageUrl || imageUrl;
- document.getElementById('popupImage').src = storedImage;
- document.getElementById('imagePopup').style.display = 'flex';
-});
-});
-
-popupUpload.addEventListener('change', (e) => {
-const file = e.target.files[0];
-if (!file || !activeGallery) return;
-const reader = new FileReader();
-reader.onload = function (event) {
- const uploadedImage = event.target.result;
- document.getElementById('popupImage').src = uploadedImage;
- activeGallery.style.backgroundImage = `url('${uploadedImage}')`;
- activeGallery.dataset.imageUrl = uploadedImage;
-};
-reader.readAsDataURL(file);
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
-    const navLinks = document.querySelectorAll("nav > ul > li > a"); // Select top-level navigation links only
-  
-    navLinks.forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active"); // Add 'active' class to the current page link
-      } else {
-        link.classList.remove("active"); // Remove 'active' class from other links
-      }
+  // Prevent clicks on .hover-image from triggering the modal
+  const hoverImages = document.querySelectorAll('.hover-image');
+  hoverImages.forEach(hoverImage => {
+    hoverImage.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent the hover image from triggering the modal
+      console.log('Hover image clicked, but modal not triggered.'); // Debugging
     });
   });
+
+  // Add event listener for the close button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  } else {
+    console.error('Close button not found.');
+  }
+
+  // Close modal when clicking outside of it
+  if (modal) {
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  } else {
+    console.error('Modal element not found.');
+  }
+});

@@ -184,6 +184,11 @@ nav a.active {
   margin-top: 20px; /* Add spacing above the footer */
 }
 
+/* Push the footer to the bottom */
+.site-footer {
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+}
+
 /* Style the content section */
 .content {
   margin: auto auto;
@@ -386,77 +391,59 @@ a {
 
 
 .modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
-  z-index: 20;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  
 }
 
 .modal-content {
-  display: flex;
-  background-color: #111;
-  border-radius: 10px;
-  max-width: 960px;
-  width: 90%;
-  overflow: hidden;
-  padding: 2rem;
   position: relative;
+  align-items: center;
+  justify-content: center;
+  background: rgb(28, 27, 32);
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  box-sizing: border-box;
 }
 
 .modal-content img {
-  max-width: 50%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 3px;
-}
-
-.modal-info {
-  color: white;
-  padding-left: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.modal-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.modal-meta {
-  font-family: 'Agrandir', sans-serif;
-  font-size: 0.75rem;
-  opacity: 0.5;
-  margin-bottom: 0.3rem;
-}
-
-.modal-desc {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  line-height: 1.5;
-  opacity: 0.8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-width: 100%; /* Ensure the image fits within the modal */
+  max-height: 65vh; /* Ensure the image doesn't exceed 80% of the viewport height */
+  margin-bottom: 0.5rem; /* Space between image and text */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .close-button {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  color: white;
+  top: 10px; /* Position it 10px from the top of the image */
+  right: 22px; /* Position it 10px from the right of the image */
   font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 20;
+  color: white;
   cursor: pointer;
-  font-weight: regular;
+  opacity: 0;
+  transition: opacity 0.1s ease; /* Smooth fade-in effect */
+  z-index: 3; /* Ensure it appears above the image */
 }
 
-
-
+.modal-content:hover .close-button {
+  opacity: 0.75; /* Show the close button when hovering over the modal content */
+}
 
 
 
@@ -480,6 +467,11 @@ a {
   }
   .arc-word { font-size: 36px; }
   .focus-word { font-size: 48px; }
+}
+
+/* Push the footer to the bottom */
+.site-footer {
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
 }
 
 .basic-composition {
@@ -506,10 +498,12 @@ a {
 
 .composition-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem 2rem;
+  margin: 2rem 2rem;
   padding: 0 8rem;
+  max-width: 2000px;
+  margin-bottom: 3rem;
 }
 
 .gallery-image {
@@ -518,28 +512,51 @@ a {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  width: 100%; /* Ensures the square fits within the grid cell */
+  max-width: 300px; /* Optional: Limit the maximum size of each square */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures the image fills the square without distortion */
+  border-radius: 10px; /* Matches the square's border radius */
 }
 
-.gallery-image input[type="file"] {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
+.gallery-image img {
+  width: 100%; /* Make the image take up the full width of the square */
+  height: 100%; /* Make the image take up the full height of the square */
+  object-fit: cover; /* Ensures the image fills the square without distortion */
+  border-radius: 10px; /* Matches the square's border radius */
+  display: block; /* Removes any extra spacing caused by inline elements */
 }
 
 .gallery-image:hover {
   box-shadow: 0 0 10px white;
 }
 
-.hover-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 50% dark */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+.gallery-image:hover img {
+  filter: brightness(50%); /* Darkens the image */
 }
+
+.gallery-image:hover .hover-photogtitle,
+.gallery-image:hover .hover-photogsub {
+  filter: none !important; /* Prevents the filter from affecting the text */
+  opacity: 1 !important; /* Ensures full visibility */
+}
+
+.gallery-image .hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the hover image fills the square */
+  border-radius: 10px; /* Matches the square's border radius */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.gallery-image:hover .hover-image {
+  opacity: 1; /* Show the hover image when hovered */
+}
+
 
 .hover-text-group {
   position: absolute;
@@ -563,20 +580,47 @@ a {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  margin-top: 0.8rem;
+  opacity: 1;
 }
 
 .hover-photogsub {
+  color: rgb(204, 204, 204);
   font-family: 'Agrandir', sans-serif;
-  font-size: 0.75rem;
-  margin-top: 10px;
-  opacity: 0.5;
+  font-size: 0.7rem;
+  margin-top: 5px;
 }
 
 .gallery-image:hover .hover-text-group {
   opacity: 1;
 }
 
+.gallery-item {
+  display: flex;
+  flex-direction: column; /* Stack the image and description vertically */
+  align-items: center; /* Center the description horizontally */
+  margin-bottom: 0;
+  gap: 0; /* Add spacing between the image and the description */
+}
+
+.gallery-image {
+  background-color: #222;
+  aspect-ratio: 1/1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 0;
+  width: 100%; /* Ensure the image takes up the full width of the grid cell */
+}
+
+.image-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: center;
+  margin: 0.5rem 0 0;/* Remove extra margins */
+}
 
 /* Tablet: 2 columns */
 @media (max-width: 1024px) {
@@ -584,7 +628,7 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    gap: 2rem;
+    gap: 0.5rem 1.5rem;
     padding: 0 2rem;
   }
 
@@ -592,7 +636,13 @@ a {
     grid-column: 1 / -1;
     justify-self: center;
   }
+  /* Push the footer to the bottom */
+  .site-footer {
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+  }
 }
+
+
 
 @media (max-width: 1024px) and (min-width: 601px) {
   .composition-gallery {
@@ -604,12 +654,19 @@ a {
   .composition-gallery > .gallery-image:nth-last-child(1):nth-child(odd) {
     justify-self: center;
   }
+  /* Push the footer to the bottom */
+  .site-footer {
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+  }
 }
 
 @media (max-width: 600px) {
   .composition-gallery {
     grid-template-columns: 1fr;
     justify-items: center;
+  }
+  .site-footer {
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
   }
 }
 
@@ -662,7 +719,7 @@ a {
   padding: 15px 20px 30px 20px;
   font-size: 0.7rem;
   font-family: 'Montserrat', sans-serif;
-  margin-top: 40px;
+  margin-top: auto;
   border-top: 1px solid #333;
 }
 
