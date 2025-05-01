@@ -405,6 +405,7 @@ a {
 }
 
 .modal-content {
+  display: inline;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -415,15 +416,17 @@ a {
   max-height: 90%;
   margin: auto;
   box-sizing: border-box;
+  overflow: hidden; 
 }
 
 .modal-content img {
+  display: block;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 100%; /* Ensure the image fits within the modal */
   max-height: 65vh; /* Ensure the image doesn't exceed 80% of the viewport height */
   margin-bottom: 0.5rem; /* Space between image and text */
-  width: auto; /* Maintain aspect ratio */
+  width: 100%; /* Maintain aspect ratio */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -446,12 +449,12 @@ a {
 }
 
 .modal-meta2, .modal-meta {
-  color: rgb(204, 204, 204); /* Matches the color of .hover-photogsub */
+  color: rgba(204, 204, 204, 0.884); /* Matches the color of .hover-photogsub */
   font-family: 'Agrandir', sans-serif; /* Matches the font of .hover-photogsub */
   font-size: 0.8rem; /* Matches the font size of .hover-photogsub */
   margin-top: 0.2rem; /* Matches the margin of .hover-photogsub */
   text-align: center; /* Centers the text */
-  line-height: 1.4; /* Ensures consistent spacing */
+  line-height: 1.2; /* Ensures consistent spacing */
 }
 
 
@@ -461,7 +464,7 @@ a {
   font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 1px;
-  margin-top: 0.5rem;
+  margin-top: 1.2rem;
   margin-bottom: 0.5rem;
   opacity: 1;
   text-align: center; /* Optional: Center the text */
@@ -470,16 +473,18 @@ a {
 .modal-desc {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: light;
   letter-spacing: 0.5px;
   opacity: 1;
-  text-align: center; /* Optional: Center the text */
-  line-height: 1.5; /* Matches the line height of .description-underlabel */
-  margin-top: 0.4rem;
-  margin-bottom: 1.5rem;
+  text-align: center; /* Center the text */
+  line-height: 1.5; /* Add spacing between lines for readability */
+  margin: 0.9rem auto 1.6rem;
+  word-wrap: break-word; /* Break long words to fit within the container */
+  overflow-wrap: break-word; /* Ensure long words break properly */
+  white-space: normal; /* Allow text to wrap to the next line */
+  max-width: 80%; /* Constrain the description to the width of the modal */
 }
-
 
 
 
