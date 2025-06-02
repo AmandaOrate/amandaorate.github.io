@@ -1,0 +1,130 @@
+<!-- Template for Basic Composition page -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Arcorate | Photography Portfolio
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Just paste your header directly here -->
+
+  <div id="header-placeholder"></div>
+
+  <!-- Then continue with the rest of your content -->
+  <section class="basic-composition">
+    <p class="description-label">
+      LIGHT & MOTION
+    </p>
+    <p class="description-underlabel">
+      A study in long exposure, where shutter speed transforms motion into line and light traces motion, revealing what the eye by itself can’t hold.
+    </p>
+    <div class="composition-gallery">
+      <!-- 1st Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="Momentum carries the rider through blurred city lights, as well as my camera that captured its mauve still in the rain.">
+       <div class="gallery-image">
+        <img src="Light and Motion/Panning_That Classic Mauvementum.JPG" alt="That Classic Mauvementum" />
+        <img class="hover-image" src="Light and Motion/Panning_That Classic Mauvementum.JPG" alt="Hover That Classic Mauvementum" />
+        <div class="hover-overlay"></div>
+        <div class="hover-text-group">
+          <div class="hover-photogtitle">That Classic Mauvementum</div>
+          <div class="hover-photogsub">f/5 | 1/4s | ISO 400</div>
+        </div>
+      </div>
+      <p class="image-description">Panning</p>
+    </div>
+
+      <!-- 2nd Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="Ang koreograpiya ng trapiko sa SM Fariview na nakuha ng aking kamara.">
+       <div class="gallery-image">
+       <img src="Light and Motion/Light Trails_Kurbalente.JPG" alt="Kurbalente" />
+       <img class="hover-image" src="Light and Motion/Light Trails_Kurbalente.JPG" alt="Hover Kurbalente" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Kurbalente</div>
+          <div class="hover-photogsub">f/25 | 25s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Light Trails</p>
+    </div>
+      
+      <!-- 3rd Square -->
+      <div class="gallery-item" 
+         data-meta2="Sony ZV-E10" 
+         data-desc="I charged everywhere with my bright yellow light, voltaic and unbothered by the currents of my light.">
+       <div class="gallery-image">
+       <img src="Light and Motion/Light Drawing_Electric Scribbles.png" alt="Light Drawing_Electric Scribbles.png" />
+       <img class="hover-image" src="Light and Motion/Light Drawing_Electric Scribbles.png" alt="Hover Light Drawing_Electric Scribbles.png" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Electric Scribbles</div>
+          <div class="hover-photogsub">f/22 | 30s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Light Drawing</p>
+    </div>      
+
+      <!-- 4th Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="A movement similar to planetary paths, forming ellipses and circles, as if the light itself is dancing.">
+       <div class="gallery-image">
+       <img src="Light and Motion/Physiogram_Orbit of Light.png" alt="Orbit of Light" />
+       <img class="hover-image" src="Light and Motion/Physiogram_Orbit of Light.png" alt="Orbit of Light" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Orbit of Light</div>
+          <div class="hover-photogsub">f/25 | 20s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Physiogram</p>
+    </div>
+
+      <!-- 5th Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="Photos between who she is and who she was.">
+       <div class="gallery-image">
+       <img src="Light and Motion/Multiple exposure_A Semblance of Her.JPG" alt="A Semblance of Her" />
+       <img class="hover-image" src="Light and Motion/Multiple exposure_A Semblance of Her.JPG" alt="Hover A Semblance of Her" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">A Semblance of Her</div>
+          <div class="hover-photogsub">f/5.0 | 1/640s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Multiple Exposure</p>
+    </div>
+      
+    
+
+  <!-- ✅ Popup Modal — placed OUTSIDE of .composition-gallery -->
+  <div class="modal" id="imagePopup">
+    <div class="modal-content">
+      <img id="popupImage" src="" alt="Popup Image" />
+      <span class="close-button">&times;</span>
+      <div class="modal-info">
+        <div class="modal-title">TITLE</div>
+        <div class="modal-meta2">Device Name</div>
+        <div class="modal-meta">f/0.0 | 1/000s | ISO 0000</div>
+        <div class="modal-desc">Description</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+ </body>
+</html>

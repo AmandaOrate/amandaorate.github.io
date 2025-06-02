@@ -1,0 +1,81 @@
+<!-- Template for Basic Composition page -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Arcorate | Photography Portfolio
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Just paste your header directly here -->
+
+  <div id="header-placeholder"></div>
+
+  <!-- Then continue with the rest of your content -->
+  <section class="basic-composition">
+    <p class="description-label">
+      PORTRAIT
+    </p>
+    <p class="description-underlabel">
+      A person’s essence, expression, mood, and character, and what sculpts their face is the lighting that the photographer must choose.
+    </p>
+    <div class="composition-gallery">
+      <!-- 1st Square -->
+      <div class="gallery-item" 
+         data-meta2="National Gallery of Art in Washington, DC." 
+         data-desc="A painting by Lorenzo Lotto, a Venetian artist. C. 1480-1556/1557">
+       <div class="gallery-image">
+        <img src="Portrait/Saint Catherine of Alexandria by Lorenzo Lotto (1522).jpg" alt="Saint Catherine of Alexandria" />
+        <img class="hover-image" src="Portrait/Saint Catherine of Alexandria by Lorenzo Lotto (1522).jpg" alt="Hover Saint Catherine of Alexandria" />
+        <div class="hover-overlay"></div>
+        <div class="hover-text-group">
+          <div class="hover-photogtitle">Saint Catherine</div>
+          <div class="hover-photogsub">Reference image</div>
+        </div>
+      </div>
+      <p class="image-description">Saint Catherine of Alexandria</p>
+    </div>
+
+      <!-- 2nd Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="My art appropriation of the painting, Saint Catherine by Lorenzo Lotto.">
+       <div class="gallery-image">
+       <img src="Portrait/Portrait Photography.jpg" alt="Portrait Photography" />
+       <img class="hover-image" src="Portrait/Portrait Photography.jpg" alt="Hover Portrait Photography" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Portraiture</div>
+          <div class="hover-photogsub">f/7.1 | 1/125s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Butterfly Lighting</p>
+    </div>
+
+
+  <!-- ✅ Popup Modal — placed OUTSIDE of .composition-gallery -->
+  <div class="modal" id="imagePopup">
+    <div class="modal-content">
+      <img id="popupImage" src="" alt="Popup Image" />
+      <span class="close-button">&times;</span>
+      <div class="modal-info">
+        <div class="modal-title">TITLE</div>
+        <div class="modal-meta2">Device Name</div>
+        <div class="modal-meta">f/0.0 | 1/000s | ISO 0000</div>
+        <div class="modal-desc">Description</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+ </body>
+</html>

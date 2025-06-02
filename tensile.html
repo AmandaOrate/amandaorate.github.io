@@ -1,75 +1,112 @@
 <!-- Template for Basic Composition page -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arcorate | Photography Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Arcorate | Photography Portfolio
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
   <!-- Just paste your header directly here -->
-  <div class="top-bar">
-    <div class="logo">
-      <div class="logo-image">
-        <input type="file" accept="image/*">
-      </div>
-      <div class="brand">Arcorate</div>
-      <div class="subtext">Photography</div>
-    </div>
-    <nav>
-      <ul class="nav-left">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="arts.html">ARTS</a></li>
-        <li class="dropdown">
-          <a href="#">PHOTOGRAPHY</a>
-          <ul class="dropdown-menu">
-            <li><a href="photo1.html">PHOTOGRAPHY 1</a></li>
-            <li><a href="photo2.html">PHOTOGRAPHY 2</a></li>
-            <li><a href="gallery.html">GALLERY</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav-right">
-        <li><a href="artist.html">ARTIST</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-    </nav>
-  </div>
+
+  <div id="header-placeholder"></div>
 
   <!-- Then continue with the rest of your content -->
-    <!-- Your page content here -->
-
   <section class="basic-composition">
-    <h2>TENSILE</h2>
-    <p class="description-underlabel">The way the various elements in a scene are arranged within the frame. As I've already mentioned, these are not hard and fast rules but guidelines.</p>
+    <p class="description-label">
+      TENSILE
+    </p>
+    <p class="description-underlabel">
+      Tension you can feel, before you can even understand it. It is space, weight, and balance pulled on the verge of release or collapse.
+    </p>
     <div class="composition-gallery">
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
-      <div class="gallery-image"><input type="file" accept="image/*"></div>
+      <!-- 1st Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1" 
+         data-desc="Tinig sa loob ng telang pulang nilamasan,">
+       <div class="gallery-image">
+        <img src="Tensile/Close-up shot.png" alt="Tinig," />
+        <img class="hover-image" src="Tensile/Close-up shot.png" alt="Tinig," />
+        <div class="hover-overlay"></div>
+        <div class="hover-text-group">
+          <div class="hover-photogtitle">Tinig,</div>
+          <div class="hover-photogsub">f/4 | 1/25s | ISO 600</div>
+        </div>
+      </div>
+      <p class="image-description">Close-up shot</p>
     </div>
-  </section>
 
-  <script>
-    document.querySelectorAll('.image-input').forEach(input => {
-      input.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function (event) {
-          input.parentElement.style.backgroundImage = `url('${event.target.result}')`;
-        };
-        reader.readAsDataURL(file);
-      });
-    });
-  </script>
+      <!-- 2nd Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1, Self-timer: 10sec" 
+         data-desc="Damdaming, nakatalukbong sa di mapawing api sa sarili,">
+       <div class="gallery-image">
+       <img src="Tensile/Medium shot.png" alt="Damdamin," />
+       <img class="hover-image" src="Tensile/Medium shot.png" alt="Hover Damdamin," />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Damdamin,</div>
+          <div class="hover-photogsub">f/4 | 1/25s | ISO 600</div>
+        </div>
+      </div>
+      <p class="image-description">Medium shot</p>
+    </div>
+      
+      <!-- 3rd Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1, Self-timer: 10sec" 
+         data-desc="at Pagkarindi, sa kawad ng telang idinampi at 𝘱𝘪𝘯𝘪𝘭𝘪.">
+       <div class="gallery-image">
+       <img src="Tensile/Full body shot.png" alt="at Pagkarindi" />
+       <img class="hover-image" src="Tensile/Full body shot.png" alt="Hover at Pagkarindi" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">at Pagkarindi</div>
+          <div class="hover-photogsub">f/4 | 1/25s | ISO 600</div>
+        </div>
+      </div>
+      <p class="image-description">Full body shot</p>
+    </div>      
 
-</body>
+      <!-- 4th Square -->
+      <div class="gallery-item" 
+         data-meta2="Canon EOS REBEL SL1, Self-timer: 10sec" 
+         data-desc="Wrapped and clearly shocked. My clearest photo here because I could not for the life of me capture myself clearly or properly in frame.">
+       <div class="gallery-image">
+       <img src="Tensile/Shawarma.jpg" alt="Shawarma" />
+       <img class="hover-image" src="Tensile/Shawarma.jpg" alt="Hover Shawarma" />
+       <div class="hover-overlay"></div>
+       <div class="hover-text-group">
+          <div class="hover-photogtitle">Shawarma</div>
+          <div class="hover-photogsub">f/4 | 1/160s | ISO 100</div>
+        </div>
+      </div>
+      <p class="image-description">Full ?? shot</p>
+    </div>      
+
+  <!-- ✅ Popup Modal — placed OUTSIDE of .composition-gallery -->
+  <div class="modal" id="imagePopup">
+    <div class="modal-content">
+      <img id="popupImage" src="" alt="Popup Image" />
+      <span class="close-button">&times;</span>
+      <div class="modal-info">
+        <div class="modal-title">TITLE</div>
+        <div class="modal-meta2">Device Name</div>
+        <div class="modal-meta">f/0.0 | 1/000s | ISO 0000</div>
+        <div class="modal-desc">Description</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+ </body>
 </html>
